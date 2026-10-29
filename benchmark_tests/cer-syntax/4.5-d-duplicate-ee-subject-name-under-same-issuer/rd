@@ -1,0 +1,66 @@
+# Valid baseline repository for benchmarking and mutation tests.
+# Each ROA explicitly produces exactly one distinct VRP payload.
+
+ta.cer
+	ca1.cer
+		roa1-1.roa
+		roa1-2.roa
+		ca1.mft
+		ca1.crl
+	ca2.cer
+		roa2-1.roa
+		roa2-2.roa
+		ca2.mft
+		ca2.crl
+	ta.mft
+	ta.crl
+
+[node: ca1.cer]
+obj.tbsCertificate.extensions.ip.extnValue = [ 10.1.0.0/16, 2001:db8:1::/48 ]
+
+[node: roa1-1.roa]
+obj.content.encapContentInfo.eContent.ipAddrBlocks = [ 10.1.1.0/24-24 ]
+obj.content.encapContentInfo.eContent.asId = 64501
+obj.content.certificates.0.tbsCertificate.subject.rdnSequence = [
+	[ { type = 2.5.4.3, value = duplicate-ee-subject } ]
+]
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = [ 10.1.1.0/24 ]
+
+[node: roa1-2.roa]
+obj.content.encapContentInfo.eContent.ipAddrBlocks = [ 10.1.2.0/24-24 ]
+obj.content.encapContentInfo.eContent.asId = 64502
+obj.content.certificates.0.tbsCertificate.subject.rdnSequence = [
+	[ { type = 2.5.4.3, value = duplicate-ee-subject } ]
+]
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = [ 10.1.2.0/24 ]
+
+[node: ca2.cer]
+obj.tbsCertificate.extensions.ip.extnValue = [ 10.2.0.0/16, 2001:db8:2::/48 ]
+
+[node: roa2-1.roa]
+obj.content.encapContentInfo.eContent.ipAddrBlocks = [ 10.2.1.0/24-24 ]
+obj.content.encapContentInfo.eContent.asId = 64503
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = [ 10.2.1.0/24 ]
+
+[node: roa2-2.roa]
+obj.content.encapContentInfo.eContent.ipAddrBlocks = [ 10.2.2.0/24-24 ]
+obj.content.encapContentInfo.eContent.asId = 64504
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = [ 10.2.2.0/24 ]
+
+# RFC 9286 requires every manifest EE certificate to inherit its issuer's
+# Internet Number Resources instead of listing explicit resources.
+[node: ta.mft]
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = inherit
+obj.content.certificates.0.tbsCertificate.extensions.as.extnValue.asnum = inherit
+
+[node: ca1.mft]
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = inherit
+obj.content.certificates.0.tbsCertificate.extensions.as.extnValue.asnum = inherit
+
+[node: ca2.mft]
+obj.content.certificates.0.tbsCertificate.extensions.ip.extnValue = inherit
+obj.content.certificates.0.tbsCertificate.extensions.as.extnValue.asnum = inherit
+
+# RFC 8182 requires a version 4 UUID as the RRDP session_id.
+[notification: https://localhost:8443/$TEST/notification.xml]
+session = 8c1b934d-5e8a-4f8c-9e62-14ab3f25d701

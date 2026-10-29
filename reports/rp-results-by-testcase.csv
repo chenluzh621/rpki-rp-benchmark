@@ -1,0 +1,145 @@
+Test case,FORT 1.6.7,Routinator 0.15.2,rpki-client 9.8,rpki-prover v0.10.1,Field,Category
+truncated-roa-object,pass,pass,pass,pass,,DER Decoding
+malformed-asn1-tag,pass,pass,pass,pass,,DER Decoding
+inconsistent-length-field,pass,pass,pass,pass,,DER Decoding
+ber-specific-encoding,fail,fail,fail,fail,,DER Decoding
+4.0-forbidden-unique-identifiers,fail,pass,pass,pass,,CER Syntax
+4.1-non-v3-certificate-version,pass,pass,pass,fail,version,CER Syntax
+4.2-a-negative-serial-number,fail,pass,pass,fail,serial number,CER Syntax
+4.3-b-serial-number-is-zero,fail,fail,fail,fail,serial number,CER Syntax
+4.2-c-duplicate-serial-number-under-same-issuer,fail,fail,fail,fail,serial number,CER Syntax
+4.3-a-signature-algorithm-identifier-mismatch,pass,pass,pass,fail,signature,CER Syntax
+4.3-b-non-conforming-sha1-signature-algorithm,pass,pass,pass,fail,signature,CER Syntax
+4.4-a-issuer-missing-common-name,pass,fail,pass,fail,issuer,CER Syntax
+4.4-b-issuer-multiple-common-name,pass,fail,pass,fail,issuer,CER Syntax
+4.4-c-issuer-wrong-string-type,fail,fail,fail,fail,issuer,CER Syntax
+4.5-a-subject-missing-common-name,pass,fail,pass,fail,subject,CER Syntax
+4.5-b-subject-multiple-common-name,fail,fail,pass,fail,subject,CER Syntax
+4.5-c-subject-wrong-string-type,fail,fail,fail,fail,subject,CER Syntax
+4.5-d-duplicate-ee-subject-name-under-same-issuer,fail,fail,fail,fail,subject,CER Syntax
+4.6-a-not-after-before-not-before,pass,pass,pass,pass,validity,CER Syntax
+4.7-a-wrong-subject-public-key-algorithm,pass,pass,pass,pass,SubjectPublicKeyInfo,CER Syntax
+4.7-b-subject-public-key-not-rsa,pass,pass,pass,pass,SubjectPublicKeyInfo,CER Syntax
+4.8.1-a-ca-missing-basic-constraints,pass,pass,pass,pass,Basic Constraints,CER Syntax
+4.8.1-b-ee-has-basic-constraints,pass,pass,pass,pass,Basic Constraints,CER Syntax
+4.8.1-c-non-critical-basic-constraints,pass,pass,pass,fail,Basic Constraints,CER Syntax
+4.8.1-d-path-length-constraint-present,pass,pass,pass,pass,Basic Constraints,CER Syntax
+4.8.2-a-missing-ski,pass,pass,pass,pass,Subject Key Identifier,CER Syntax
+4.8.2-b-wrong-ski-value-in-ee,pass,pass,pass,fail,Subject Key Identifier,CER Syntax
+4.8.2-c-critical-ski,pass,fail,pass,pass,Subject Key Identifier,CER Syntax
+4.8.3-a-missing-aki,pass,pass,pass,pass,Authority Key Identifier,CER Syntax
+4.8.3-b-wrong-aki-value,pass,pass,pass,pass,Authority Key Identifier,CER Syntax
+4.8.3-c-aki-with-cert-issuer,pass,pass,pass,pass,Authority Key Identifier,CER Syntax
+4.8.3-d-aki-with-cert-serial,pass,pass,pass,pass,Authority Key Identifier,CER Syntax
+4.8.3-e-critical-aki,pass,pass,pass,pass,Authority Key Identifier,CER Syntax
+4.8.4-a-missing-key-usage,pass,pass,pass,pass,Key Usage,CER Syntax
+4.8.4-b-wrong-key-usage-in-ca,pass,pass,pass,pass,Key Usage,CER Syntax
+4.8.4-c-wrong-key-usage-in-ee,pass,pass,pass,fail,Key Usage,CER Syntax
+4.8.4-d-non-critical-key-usage,pass,fail,pass,fail,Key Usage,CER Syntax
+4.8.5-a-eku-in-ca,fail,pass,pass,fail,Extended Key Usage,CER Syntax
+4.8.5-b-eku-in-roa-ee,fail,pass,pass,fail,Extended Key Usage,CER Syntax
+4.8.6-a-missing-crldp,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-b-crldp-with-reasons,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-c-crldp-with-crlIssuer,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-d-crldp-name-relative,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-e-crldp-non-uri-name,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-f-multiple-distribution-points,pass,pass,pass,fail,CRL Distribution Points,CER Syntax
+4.8.6-g-critical-crldp,pass,fail,pass,pass,CRL Distribution Points,CER Syntax
+4.8.7-a-missing-aia,pass,pass,pass,fail,Authority Information Access,CER Syntax
+4.8.7-b-aia-on-self-signed-ta,fail,pass,pass,fail,Authority Information Access,CER Syntax
+4.8.7-c-aia-wrong-access-method,pass,pass,pass,fail,Authority Information Access,CER Syntax
+4.8.7-d-aia-wrong-issuer-certificate,fail,fail,fail,fail,Authority Information Access,CER Syntax
+4.8.7-e-critical-aia,pass,pass,pass,pass,Authority Information Access,CER Syntax
+4.8.8.1-a-missing-sia,pass,pass,pass,pass,SIA for CA,CER Syntax
+4.8.8.1-b-ca-sia-missing-caRepository,pass,pass,pass,pass,SIA for CA,CER Syntax
+4.8.8.1-c-ca-sia-non-rsync-uri,fail,pass,pass,pass,SIA for CA,CER Syntax
+4.8.8.1-d-ca-sia-missing-rpkiManifest,pass,pass,pass,pass,SIA for CA,CER Syntax
+4.8.8.1-e-critical-sia-in-ca,pass,fail,pass,pass,SIA for CA,CER Syntax
+4.8.8.2-a-ee-sia-missing-signedObject,pass,pass,pass,fail,SIA for EE,CER Syntax
+4.8.8.2-b-ee-sia-extra-caRepository,fail,pass,pass,fail,SIA for EE,CER Syntax
+4.8.8.2-c-critical-sia-in-ee,pass,pass,pass,pass,SIA for EE,CER Syntax
+4.8.9-a-missing-cert-policy,pass,pass,pass,pass,Certificate Policies,CER Syntax
+4.8.9-b-multiple-policies ,pass,pass,pass,pass,Certificate Policies,CER Syntax
+4.8.9-c-non-critical-certificate-policies,pass,fail,pass,fail,Certificate Policies,CER Syntax
+4.8.10-a-missing-resources-extension,pass,pass,pass,pass,IP Resources,CER Syntax
+4.8.10-b-ip-resources-contains-safi,pass,pass,pass,fail,IP Resources,CER Syntax
+4.8.10-c-empty-ip-resources,pass,pass,pass,pass,IP Resources,CER Syntax
+4.8.10-d-non-critical-ip-resources,pass,fail,pass,fail,IP Resources,CER Syntax
+4.8.11-a-as-resources-contains-rdi,pass,pass,pass,pass,AS Resources,CER Syntax
+4.8.11-b-empty-as-recources,pass,fail,pass,fail,AS Resources,CER Syntax
+4.8.11-c-non-critical-as-resources,pass,fail,pass,fail,AS Resources,CER Syntax
+5.1.2.1-non-v2-crl-version,pass,pass,pass,fail,version,CRL Syntax
+5.1.2.2-a-signature-algorithm-identifier-mismatch,fail,pass,fail,fail,signature/signatureAlgorithm,CRL Syntax
+5.1.2.2-b-non-conforming-sha1-signature-algorithm,pass,pass,pass,fail,signature/signatureAlgorithm,CRL Syntax
+5.1.2.3-a-issuer-missing-common-name,pass,fail,pass,fail,issuer,CRL Syntax
+5.1.2.3-b-issuer-multiple-common-name,pass,fail,pass,fail,issuer,CRL Syntax
+5.1.2.3-c-issuer-wrong-string-type,fail,fail,fail,fail,issuer,CRL Syntax
+5.1.2.4-a-crl-expire-update-time,pass,pass,pass,pass,thisUpdate/nextUpdate,CRL Syntax
+5.1.2.4-b-crl-invalid-time-format,pass,pass,pass,pass,thisUpdate/nextUpdate,CRL Syntax
+5.1.2.6-a-missing-serial-number,pass,pass,pass,pass,revokedCertificates,CRL Syntax
+5.1.2.6-b-missing-revok-date,pass,pass,pass,pass,revokedCertificates,CRL Syntax
+5.1.2.6-c-crl-with-prohibited-entry,pass,pass,pass,pass,revokedCertificates,CRL Syntax
+5.0-disallowed-extension-in-crl,fail,pass,pass,fail,Extensions,CRL Syntax
+5.2.1-a-missing-crl-aki,pass,pass,pass,pass,Authority Key Identifier,CRL Syntax
+5.2.1-b-wrong-crl-aki-value,pass,fail,pass,pass,Authority Key Identifier,CRL Syntax
+5.2.1-c-crl-aki-with-cert-issuer,pass,pass,pass,pass,Authority Key Identifier,CRL Syntax
+5.2.1-d-crl-aki-with-cert-serial,pass,pass,pass,pass,Authority Key Identifier,CRL Syntax
+5.2.1-e-crl-aki-critical,pass,fail,pass,fail,Authority Key Identifier,CRL Syntax
+5.2.3-a-missing-crl-number,pass,pass,pass,pass,CRL Number,CRL Syntax
+5.2.3-b-negative-crl-number,fail,pass,pass,pass,CRL Number,CRL Syntax
+5.2.3-c-crl-number-too-long,fail,pass,pass,fail,CRL Number,CRL Syntax
+5.2.3-d-crl-number-critical,pass,fail,pass,fail,CRL Number,CRL Syntax
+2-cms-content-type-not-signed-data,pass,pass,pass,fail,contentType,CMS Syntax
+2.1-cms-signer-infos-count-not-one,pass,pass,pass,pass,signerInfos,CMS Syntax
+2.1.1-cms-signed-data-version-not-3,pass,pass,fail,fail,version,CMS Syntax
+2.1.2-a-cms-digest-algorithms-count-not-one,pass,pass,fail,pass,digestAlgorithm,CMS Syntax
+2.1.2-b-cms-digest-algorithms-illegal,pass,pass,pass,fail,digestAlgorithm,CMS Syntax
+2.1.4-a-cms-certificates-missing,pass,pass,pass,pass,certificates,CMS Syntax
+2.1.4-b-cms-certificates-count-not-one,pass,pass,fail,pass,certificates,CMS Syntax
+2.1.5-crl-field-exist-in-cms,pass,pass,pass,pass,crl,CMS Syntax
+2.1.6.1-cms-signer-info-version-not-3,pass,pass,fail,fail,SignerInfo.version,CMS Syntax
+2.1.6.2-cms-signer-identifier-ski-mismatch,pass,pass,pass,fail,SignerInfo.sid,CMS Syntax
+2.1.6.3-cms-signer-digest-alg-illegal,pass,pass,pass,fail,SignerInfo.digestAlgorithm,CMS Syntax
+2.1.6.4-a-cms-signed-attr-missing,pass,pass,pass,pass,signedAttrs,CMS Syntax
+2.1.6.4-b-cms-content-type-attr-missing,pass,pass,pass,fail,signedAttrs,CMS Syntax
+2.1.6.4-c-cms-message-digest-attr-missing,pass,fail,pass,fail,signedAttrs,CMS Syntax
+2.1.6.4-d-cms-signing-time-attr-missing,pass,pass,pass,fail,signedAttrs,CMS Syntax
+2.1.6.4-e-cms-signed-attr-not-allowed,pass,fail,pass,fail,signedAttrs,CMS Syntax
+2.1.6.4-f-cms-duplicate-signed-attribute,pass,pass,pass,fail,signedAttrs,CMS Syntax
+2.1.6.4-g-cms-signed-attr-multiple-values,pass,fail,pass,pass,signedAttrs,CMS Syntax
+2.1.6.5-cms-signature-algorithm-illegal,pass,pass,pass,fail,signatureAlgorithm,CMS Syntax
+2.1.6.7-cms-unsigned-attr-present,pass,pass,pass,pass,unsignedAttrs,CMS Syntax
+4.2.1-a-bad-mft-version,pass,pass,pass,pass,version,MFT-Specific Syntax
+4.2.1-b-mft-number-negative,pass,pass,pass,pass,manifestNumber,MFT-Specific Syntax
+4.2.1-c-mft-number-too-large,pass,pass,pass,pass,manifestNumber,MFT-Specific Syntax
+4.2.1-d-mft-use-utc-time,pass,fail,pass,pass,thisUpdate,MFT-Specific Syntax
+4.2.1-e-nextUpdate-before-thisUpdate,pass,pass,pass,pass,nextUpdate,MFT-Specific Syntax
+4.2.1-f-mft-unsupported-algorithm-oid,pass,pass,pass,pass,fileHashAlg,MFT-Specific Syntax
+4.2.2-a-illegal-character-in-file-name,pass,pass,pass,pass,fileList,MFT-Specific Syntax
+4.2.2-b-missing-file-list-in-mft,pass,pass,pass,pass,fileList,MFT-Specific Syntax
+4.3-incorrect-mft-content-type,pass,pass,pass,fail,content-type,MFT-Specific Syntax
+5.1-mft-ee-not-using-inherit,fail,fail,pass,pass,certificates,MFT-Specific Syntax
+6.3-stale-manifest,pass,pass,pass,pass,nextUpdate,MFT-Specific Syntax
+3-incorrect-roa-content-type,pass,pass,pass,fail,content-type,ROA-Specific Syntax
+4.1-bad-roa-version,pass,pass,pass,pass,version,ROA-Specific Syntax
+4.2-bad-origin-as-id,pass,pass,pass,fail,asID,ROA-Specific Syntax
+4.3.1-a-roa-bad-afi,pass,pass,pass,pass,addressFamily,ROA-Specific Syntax
+4.3.1-b-roa-duplicated-afi,fail,pass,pass,fail,addressFamily,ROA-Specific Syntax
+4.3.1-c-roa-too-many-afi,fail,pass,pass,fail,addressFamily,ROA-Specific Syntax
+4.3.2.2-a-max-length-below-prefix-length,pass,pass,pass,pass,maxLength,ROA-Specific Syntax
+4.3.2.2-b-max-length-above-upper-bound,pass,pass,pass,pass,maxLength,ROA-Specific Syntax
+5-a-roa-ee-using-inherit,fail,fail,pass,fail,certificates,ROA-Specific Syntax
+5-b-roa-ee-contain-as-resource,fail,fail,pass,fail,certificates,ROA-Specific Syntax
+roa-resource-coverage,fail,pass,pass,fail,,ROA Resource Coverage
+1-cms-malformed-econtent,pass,pass,pass,pass,,CMS Signature
+2-cms-invalid-signature,pass,pass,pass,pass,,CMS Signature
+3-cms-wrong-message-digest,pass,pass,pass,pass,,CMS Signature
+1-invalid-certificate-signature,pass,pass,pass,pass,,CER Path Validation
+2-issuer-subject-mismatch,pass,pass,pass,pass,,CER Path Validation
+3-invalid-certificate-validity,pass,pass,pass,pass,,CER Path Validation
+4-revoked-ca-certificate,pass,pass,pass,pass,,CER Path Validation
+5-revoked-roa-ee-certificate,pass,pass,pass,pass,,CER Path Validation
+6-revoked-manifest-ee-certificate,pass,pass,pass,pass,,CER Path Validation
+1-mft-hash-mismatch,pass,pass,pass,pass,,MFT Processing
+2-missing-object-listed-in-mft,pass,pass,pass,pass,,MFT Processing
+3-extra-object-not-listed-in-mft,pass,pass,pass,pass,,MFT Processing

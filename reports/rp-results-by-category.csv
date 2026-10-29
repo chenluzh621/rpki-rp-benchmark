@@ -1,0 +1,41 @@
+RP,Category,Pass,Fail,Total
+FORT 1.6.7,DER Decoding,3,1,4
+FORT 1.6.7,CER Syntax,51,14,65
+FORT 1.6.7,CRL Syntax,16,5,21
+FORT 1.6.7,CMS Syntax,20,0,20
+FORT 1.6.7,CMS Signature,3,0,3
+FORT 1.6.7,MFT-Specific Syntax,10,1,11
+FORT 1.6.7,ROA-Specific Syntax,6,4,10
+FORT 1.6.7,ROA Resource Coverage,0,1,1
+FORT 1.6.7,CER Path Validation,6,0,6
+FORT 1.6.7,MFT Processing,3,0,3
+Routinator 0.15.2,DER Decoding,3,1,4
+Routinator 0.15.2,CER Syntax,47,18,65
+Routinator 0.15.2,CRL Syntax,15,6,21
+Routinator 0.15.2,CMS Syntax,17,3,20
+Routinator 0.15.2,CMS Signature,3,0,3
+Routinator 0.15.2,MFT-Specific Syntax,9,2,11
+Routinator 0.15.2,ROA-Specific Syntax,8,2,10
+Routinator 0.15.2,ROA Resource Coverage,1,0,1
+Routinator 0.15.2,CER Path Validation,6,0,6
+Routinator 0.15.2,MFT Processing,3,0,3
+rpki-client 9.8,DER Decoding,3,1,4
+rpki-client 9.8,CER Syntax,59,6,65
+rpki-client 9.8,CRL Syntax,19,2,21
+rpki-client 9.8,CMS Syntax,16,4,20
+rpki-client 9.8,CMS Signature,3,0,3
+rpki-client 9.8,MFT-Specific Syntax,11,0,11
+rpki-client 9.8,ROA-Specific Syntax,10,0,10
+rpki-client 9.8,ROA Resource Coverage,1,0,1
+rpki-client 9.8,CER Path Validation,6,0,6
+rpki-client 9.8,MFT Processing,3,0,3
+rpki-prover v0.10.1,DER Decoding,3,1,4
+rpki-prover v0.10.1,CER Syntax,29,36,65
+rpki-prover v0.10.1,CRL Syntax,11,10,21
+rpki-prover v0.10.1,CMS Syntax,8,12,20
+rpki-prover v0.10.1,CMS Signature,3,0,3
+rpki-prover v0.10.1,MFT-Specific Syntax,10,1,11
+rpki-prover v0.10.1,ROA-Specific Syntax,4,6,10
+rpki-prover v0.10.1,ROA Resource Coverage,0,1,1
+rpki-prover v0.10.1,CER Path Validation,6,0,6
+rpki-prover v0.10.1,MFT Processing,3,0,3

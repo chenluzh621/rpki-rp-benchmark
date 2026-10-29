@@ -1,0 +1,5 @@
+RP,Pass,Fail,Total
+FORT 1.6.7,118,26,144
+Routinator 0.15.2,112,32,144
+rpki-client 9.8,131,13,144
+rpki-prover v0.10.1,77,67,144
